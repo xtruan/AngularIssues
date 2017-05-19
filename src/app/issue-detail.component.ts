@@ -24,7 +24,7 @@ export class IssueDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params
-            .switchMap((params: Params) => this.issueService.getIssue(+params['id']))
+            .switchMap((params: Params) => this.issueService.getIssue(+params['number']))
             .subscribe(issue => this.issue = issue);
     }
 

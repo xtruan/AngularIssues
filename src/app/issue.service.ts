@@ -6,19 +6,28 @@ import { Issue } from './issue';
 
 @Injectable()
 export class IssueService {
-    private issuesUrl = 'https://api.github.com/repos/angular/angular/issues';  // URL to GitHub Angular issues web api
+    // URL to GitHub Angular issues web api
+    private issuesUrlRoot = 'https://api.github.com/repos/angular/angular/issues';
 
     constructor(private http: Http) { }
 
     getIssues(): Promise<Issue[]> {
-        return this.http.get(this.issuesUrl)
+        // subtract 7 days from current time
+        let date: Date = new Date();
+        date.setDate(date.getDate() - 7);
+        // call api with since parameter set to 7 days  ago
+        let issuesUrl: string = this.issuesUrlRoot + '?since=' + date.toISOString();
+        
+        console.log(issuesUrl);
+
+        return this.http.get(issuesUrl)
             .toPromise()
             .then(response => response.json() as Issue[])
             .catch(this.handleError);
     }
     
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 
@@ -29,8 +38,8 @@ export class IssueService {
         });
     }
 
-    getIssue(id: number): Promise<Issue> {
+    getIssue(number: number): Promise<Issue> {
         return this.getIssues()
-            .then(issues => issues.find(issue => issue.id === id));
+            .then(issues => issues.find(issue => issue.number === number));
     }
 }

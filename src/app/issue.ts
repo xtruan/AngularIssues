@@ -12,14 +12,13 @@ export interface Issue {
     labels: Label[];
     state: string;
     locked: boolean;
-    assignee?: any;
-    assignees: any[];
-    milestone?: any;
+    assignee: User;
+    assignees: User[];
+    milestone: string;
     comments: number;
     created_at: Date;
     updated_at: Date;
-    closed_at?: any;
-    pull_request: PullRequest;
+    closed_at: Date;
     body: string;
 }
 
@@ -49,11 +48,4 @@ export interface Label {
     name: string;
     color: string;
     default: boolean;
-}
-
-export interface PullRequest {
-    url: string;
-    html_url: string;
-    diff_url: string;
-    patch_url: string;
 }

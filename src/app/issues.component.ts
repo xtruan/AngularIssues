@@ -32,7 +32,7 @@ export class IssuesComponent implements OnInit {
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedIssue.id]);
+    this.router.navigate(['/detail', this.selectedIssue.number]);
   }
 
 }
