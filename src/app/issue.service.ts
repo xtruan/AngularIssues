@@ -3,7 +3,6 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Issue } from './issue';
-import { ISSUES } from './mock-issues';
 
 @Injectable()
 export class IssueService {
