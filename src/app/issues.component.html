@@ -1,12 +1,12 @@
 <h2>My Issues</h2>
 <ul class="issues">
     <li *ngFor="let issue of issues" [class.selected]="issue === selectedIssue" (click)="onSelect(issue)">
-        <span class="badge">{{issue.id}}</span> {{issue.name}}
+        <span class="badge">{{issue.id}}</span> {{issue.title}}
     </li>
 </ul>
 <div *ngIf="selectedIssue">
     <h2>
-        {{selectedIssue.name | uppercase}} is an issue
+        {{selectedIssue.title}}
     </h2>
     <button (click)="gotoDetail()">View Details</button>
 </div>

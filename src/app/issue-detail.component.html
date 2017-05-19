@@ -1,9 +1,9 @@
 <div *ngIf="issue">
-    <h2>{{issue.name}} details</h2>
+    <h2>{{issue.title}} details</h2>
     <div><label>id: </label>{{issue.id}}</div>
     <div>
-        <label>name: </label>
-        <input [(ngModel)]="issue.name" placehoder="name">
+        <label>title: </label>
+        <input [(ngModel)]="issue.title" placehoder="title">
     </div>
     <button (click)="goBack()">Back</button>
 </div>
