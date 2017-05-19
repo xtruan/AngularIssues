@@ -1,20 +1,35 @@
-import { Component, Input } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Issue } from './issue';
+import { IssueService } from './issue.service';
+
 
 @Component({
-  selector: 'issue-detail',
-  template: `
-  <div *ngIf="issue">
-    <h2>{{issue.name}} details</h2>
-    <div><label>id: </label>{{issue.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)] = "issue.name" placehoder="name">
-    </div>
-  </div>
-  `
+    selector: 'issue-detail',
+    templateUrl: './issue-detail.component.html',
+    styleUrls: ['./issue-detail.component.css']
 })
 
-export class IssueDetailComponent {
-    @Input() issue: Issue
+export class IssueDetailComponent implements OnInit {
+    issue: Issue
+
+    constructor(
+        private issueService: IssueService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) { }
+
+    ngOnInit(): void {
+        this.route.params
+            .switchMap((params: Params) => this.issueService.getIssue(+params['id']))
+            .subscribe(issue => this.issue = issue);
+    }
+
+    goBack(): void {
+        this.location.back();
+    }
 }

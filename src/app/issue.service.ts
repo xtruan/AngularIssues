@@ -5,7 +5,13 @@ import { ISSUES } from './mock-issues';
 
 @Injectable()
 export class IssueService {
-    
+
+    getIssue(id: number): Promise<Issue> {
+        return this.getIssues()
+            .then(issues => issues.find(issue => issue.id === id));
+    }
+
+
     getIssues(): Promise<Issue[]> {
         return Promise.resolve(ISSUES);
     }
