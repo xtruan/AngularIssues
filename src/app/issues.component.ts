@@ -21,6 +21,7 @@ export class IssuesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // subtract 7 days from current time
     let date = new Date();
     date.setDate(date.getDate() - 7);
     this.dateStr = date.toDateString();

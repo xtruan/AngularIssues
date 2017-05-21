@@ -18,7 +18,7 @@ export class IssueService {
         date.setDate(date.getDate() - 7);
         // call api with since parameter set to 7 days  ago
         let issuesUrl: string = this.issuesUrlRoot + '?per_page=100&since=' + date.toISOString();
-        
+
         console.log(issuesUrl);
 
         return this.http.get(issuesUrl)
@@ -26,7 +26,7 @@ export class IssueService {
             .then(response => response.json() as Issue[])
             .catch(this.handleError);
     }
-    
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

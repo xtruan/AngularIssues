@@ -33,6 +33,7 @@ export class IssueDetailComponent implements OnInit {
     }
 
     replaceBodyElements(body: string) {
+        // replaces newlines with breaks and markdown style image embeds with anchor tags
         return body
             .replace(/\n/g, '<br/>')
             .replace(/(!\[image\]\()(.*)(\))/g, '<img src="$2"></img>');
