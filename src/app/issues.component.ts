@@ -13,6 +13,7 @@ import { IssueService } from './issue.service'
 export class IssuesComponent implements OnInit {
   issues: Issue[];
   selectedIssue: Issue;
+  dateStr: string;
 
   constructor(
     private router: Router,
@@ -20,6 +21,10 @@ export class IssuesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let date = new Date();
+    date.setDate(date.getDate() - 7);
+    this.dateStr = date.toDateString();
+    
     this.getIssues();
   }
 

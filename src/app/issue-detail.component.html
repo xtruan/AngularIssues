@@ -9,6 +9,6 @@
         <span *ngIf="!issue.assignee; else showAssignee"><i>NONE</i></span>
         <ng-template #showAssignee>{{issue.assignee.login}}</ng-template>
     </div>
-    <div><label>body: </label>{{issue.body}}</div>
+    <div><label>body: </label><div [innerHTML]="replaceBodyElements(issue.body)"></div></div>
     <button (click)="goBack()">Back</button>
 </div>

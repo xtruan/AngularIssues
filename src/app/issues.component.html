@@ -1,4 +1,4 @@
-<h2>Issues in the Past Week</h2>
+<h2>Issues in the Past Week (Since {{dateStr}})</h2>
 <ul class="issues">
     <li *ngFor="let issue of issues" [class.selected]="issue === selectedIssue" (click)="onSelect(issue)">
         <span class="badge">{{issue.number}}</span> {{issue.title}}

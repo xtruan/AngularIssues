@@ -31,4 +31,10 @@ export class IssueDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
+
+    replaceBodyElements(body: string) {
+        return body
+            .replace(/\n/g, '<br/>')
+            .replace(/(!\[image\]\()(.*)(\))/g, '<img src="$2"></img>');
+    }
 }
