@@ -25,3 +25,6 @@ The application pulls in issues for the last 7 days from the [Angular issue trac
 * A details page with information about the issue including number, title, created date, URL, user login, assignee login, and body (text and images).
 * Issue detail pages support direct linking by issue number.
 
+## Note
+
+The unauthenticated GitHub API which this application makes use of is limited to **60 requests per hour**. After that is exhausted, the app will report an error until the time is reset.

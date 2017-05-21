@@ -3,7 +3,7 @@
     <h3>
         <a *ngFor="let issue of issues; let i = index" [routerLink]="['/detail', issue.number]" class="col-1-3">
             <div class="module issue">
-                <h4>{{i+1}}) {{issue.title}}</h4>
+                <h4><b>{{i+1}})</b> {{issue.title}}</h4>
             </div>
         </a>
     </h3>
