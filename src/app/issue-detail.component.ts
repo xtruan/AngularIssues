@@ -14,7 +14,7 @@ import { IssueService } from './issue.service';
 })
 
 export class IssueDetailComponent implements OnInit {
-    issue: Issue
+    issue: Issue;
 
     constructor(
         private issueService: IssueService,

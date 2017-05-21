@@ -3,7 +3,10 @@
     <div><label>number: </label>{{issue.number}}</div>
     <div><label>title: </label>{{issue.title}}</div>
     <div><label>user: </label>{{issue.user.login}}</div>
-    <div><label>assignee: </label>{{issue.assignee.login}}</div>
+    <div><label>assignee: </label>
+        <span *ngIf="!issue.assignee; else showAssignee"><i>None</i></span>
+        <ng-template #showAssignee>{{issue.assignee.login}}</ng-template>
+    </div>
     <div><label>body: </label>{{issue.body}}</div>
     <button (click)="goBack()">Back</button>
 </div>
