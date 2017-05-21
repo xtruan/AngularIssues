@@ -7,8 +7,8 @@ import { Issue } from './issue';
 @Injectable()
 export class IssueService {
     // URL to GitHub Angular issues web api
-    //private issuesUrlRoot = 'https://api.github.com/repos/angular/angular/issues';
-    private issuesUrlRoot = 'http://192.168.111.138/angular_json/issues.json';
+    private issuesUrlRoot = 'https://api.github.com/repos/angular/angular/issues';
+    //private issuesUrlRoot = 'http://192.168.111.138/angular_json/issues.json';
 
     constructor(private http: Http) { }
 
