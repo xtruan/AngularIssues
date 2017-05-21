@@ -2,11 +2,9 @@
 <ul class="issues">
     <li *ngFor="let issue of issues" [class.selected]="issue === selectedIssue" (click)="onSelect(issue)">
         <span class="badge">{{issue.number}}</span> {{issue.title}}
+        <span *ngIf="issue === selectedIssue">
+            <span class="reporter">Reported by: {{selectedIssue.user.login}}</span>
+            <button (click)="gotoDetail()">View Details</button>
+        </span>
     </li>
 </ul>
-<div *ngIf="selectedIssue">
-    <h2>
-        {{selectedIssue.title}}
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
-</div>

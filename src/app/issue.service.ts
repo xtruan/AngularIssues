@@ -8,7 +8,7 @@ import { Issue } from './issue';
 export class IssueService {
     // URL to GitHub Angular issues web api
     //private issuesUrlRoot = 'https://api.github.com/repos/angular/angular/issues';
-    private issuesUrlRoot = 'http://192.168.111.137/angular_json/issues.json';
+    private issuesUrlRoot = 'http://192.168.111.138/angular_json/issues.json';
 
     constructor(private http: Http) { }
 
@@ -17,7 +17,7 @@ export class IssueService {
         let date: Date = new Date();
         date.setDate(date.getDate() - 7);
         // call api with since parameter set to 7 days  ago
-        let issuesUrl: string = this.issuesUrlRoot + '?since=' + date.toISOString();
+        let issuesUrl: string = this.issuesUrlRoot + '?per_page=100&since=' + date.toISOString();
         
         console.log(issuesUrl);
 
