@@ -10,7 +10,8 @@ Tested with node v6.10.3, npm v4.6.1, and tsc v2.3.2.
 
 Navigate to the root of the checked out repository then run the following:
 
-```
+```sh
+npm install
 npm start
 ```
 
