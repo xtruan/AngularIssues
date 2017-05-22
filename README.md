@@ -23,7 +23,7 @@ The application pulls in issues for the last 7 days from the [Angular issue trac
 
 * Dashboard that displays the top 5 issues which are links to the details page for each issue.
 * An issue list which displays issues from the past 7 days and provides links to the details page for each issue.
-* A details page with information about the issue including number, title, created date, URL, user login, assignee login, and body (text and images).
+* A details page with information about the issue including number, title, created date, updated date, URL, user login, assignee login, and body (text and images).
 * Issue detail pages support direct linking by issue number.
 
 ## Note
